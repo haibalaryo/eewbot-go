@@ -11,6 +11,13 @@ import (
 )
 
 func main() {
+	targetHost := os.Getenv("INSTANCE_HOST")
+    // 空っぽだったらエラーで落とす
+    if targetHost == "" {
+        fmt.Println("Error: INSTANCE_HOST is not set.")
+        return
+    }
+
 	if os.Getenv("KEVI_EVENT_TYPE") == "EEW_RECEIVED" {
 		imageData, err := xvfb.TakeScreenshotOfXvfb()
 		if err != nil {
@@ -65,7 +72,7 @@ func main() {
 			}
 
 			note := notify.MisskeyNote{
-				InstanceHost: "social.sda1.net",
+				InstanceHost: targetHost,
 				Token:        os.Getenv("MISSKEY_TOKEN"),
 				Text:         text,
 				LocalOnly:    false,
@@ -79,68 +86,68 @@ func main() {
 			}
 		}()
 
-		// Discordに通知
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			var color int
-			var discordEmbedTitle string
-			var discordEmbedMessage string
+		// // Discordに通知
+		// wg.Add(1)
+		// go func() {
+		// 	defer wg.Done()
+		// 	var color int
+		// 	var discordEmbedTitle string
+		// 	var discordEmbedMessage string
 
-			if quake.IsEmergency(q.DispIntensity) {
-				color = 0xD50000
+		// 	if quake.IsEmergency(q.DispIntensity) {
+		// 		color = 0xD50000
 
-				// 本文
-				discordEmbedTitle = fmt.Sprintf("最大震度%s 緊急地震速報第%d報 強い揺れに警戒",
-					q.DispIntensity,
-					q.ReportNum)
+		// 		// 本文
+		// 		discordEmbedTitle = fmt.Sprintf("最大震度%s 緊急地震速報第%d報 強い揺れに警戒",
+		// 			q.DispIntensity,
+		// 			q.ReportNum)
 
-				discordEmbedMessage = fmt.Sprintf("強い揺れに警戒。%sを震源とする最大震度%sの地震が発生しました。",
-					q.Place,
-					q.DispIntensity)
+		// 		discordEmbedMessage = fmt.Sprintf("強い揺れに警戒。%sを震源とする最大震度%sの地震が発生しました。",
+		// 			q.Place,
+		// 			q.DispIntensity)
 
-			} else {
-				if os.Getenv("DISCORD_SILENT") == "1" {
-					return
-				}
+		// 	} else {
+		// 		if os.Getenv("DISCORD_SILENT") == "1" {
+		// 			return
+		// 		}
 
-				color = 0xffc000
+		// 		color = 0xffc000
 
-				// 本文
-				discordEmbedTitle = fmt.Sprintf("最大震度%s 緊急地震速報第%d報",
-					q.DispIntensity,
-					q.ReportNum)
+		// 		// 本文
+		// 		discordEmbedTitle = fmt.Sprintf("最大震度%s 緊急地震速報第%d報",
+		// 			q.DispIntensity,
+		// 			q.ReportNum)
 
-				discordEmbedMessage = fmt.Sprintf("%sを震源とする最大震度%sの地震が発生しました。",
-					q.Place,
-					q.DispIntensity)
-			}
+		// 		discordEmbedMessage = fmt.Sprintf("%sを震源とする最大震度%sの地震が発生しました。",
+		// 			q.Place,
+		// 			q.DispIntensity)
+		// 	}
 
-			var discordNotify notify.DiscordHook
-			discordNotify.Username = "EEW Bot"
-			discordNotify.Content = fmt.Sprintf("最大震度%s %s震源 EEW第%d報",
-				q.DispIntensity,
-				q.Place,
-				q.ReportNum)
-			discordNotify.Embeds = []notify.DiscordEmbed{
-				notify.DiscordEmbed{
-					Title:  discordEmbedTitle,
-					Desc:   discordEmbedMessage,
-					Color:  color,
-					Author: notify.DiscordAuthor{Name: "eewbot-go"},
-					Image:  notify.DiscordImg{URL: driveApiResp.Url},
-					Fields: []notify.DiscordField{
-						notify.DiscordField{Name: "震源", Value: q.Place, Inline: true},
-						notify.DiscordField{Name: "最大震度", Value: q.DispIntensity, Inline: true},
-					},
-				},
-			}
+		// 	var discordNotify notify.DiscordHook
+		// 	discordNotify.Username = "EEW Bot"
+		// 	discordNotify.Content = fmt.Sprintf("最大震度%s %s震源 EEW第%d報",
+		// 		q.DispIntensity,
+		// 		q.Place,
+		// 		q.ReportNum)
+		// 	discordNotify.Embeds = []notify.DiscordEmbed{
+		// 		notify.DiscordEmbed{
+		// 			Title:  discordEmbedTitle,
+		// 			Desc:   discordEmbedMessage,
+		// 			Color:  color,
+		// 			Author: notify.DiscordAuthor{Name: "eewbot-go"},
+		// 			Image:  notify.DiscordImg{URL: driveApiResp.Url},
+		// 			Fields: []notify.DiscordField{
+		// 				notify.DiscordField{Name: "震源", Value: q.Place, Inline: true},
+		// 				notify.DiscordField{Name: "最大震度", Value: q.DispIntensity, Inline: true},
+		// 			},
+		// 		},
+		// 	}
 
-			err = notify.NotifyToDiscord(discordNotify)
-			if err != nil {
-				fmt.Println(err)
-			}
-		}()
+		// 	err = notify.NotifyToDiscord(discordNotify)
+		// 	if err != nil {
+		// 		fmt.Println(err)
+		// 	}
+		// }()
 
 		wg.Wait()
 
@@ -152,7 +159,7 @@ func main() {
 		}
 
 		data := notify.MisskeyDriveUploadForm{
-			InstanceHost: "social.sda1.net",
+			InstanceHost: targetHost,
 			Token:        os.Getenv("MISSKEY_TOKEN"),
 			Data:         *imageData,
 		}
@@ -168,7 +175,7 @@ func main() {
 		text := "Botは起動しました。"
 
 		note := notify.MisskeyNote{
-			InstanceHost: "social.sda1.net",
+			InstanceHost: targetHost,
 			Token:        os.Getenv("MISSKEY_TOKEN"),
 			Text:         text,
 			LocalOnly:    true,

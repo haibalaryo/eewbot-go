@@ -1,5 +1,8 @@
 # eewbot-go
 
+**msky.haibala.com 用になっています**
+**Discord通知機能は無効化されています**
+
 ### docker compose
 ```
 services:

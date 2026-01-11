@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  eew-bot:
+    build: .
+    container_name: eew-bot
+    restart: always
+    environment:
+      - INSTANCE_HOST=misskey_server_url_here
+      
+      - MISSKEY_TOKEN=misskey_eewbot_token_here
+      
+      # Misskey v12以降のサーバーでの挙動修正
+      - USE_CURL=1
+
+      - DISCORD_SILENT=1
