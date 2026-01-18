@@ -1,1 +1,184 @@
-{"ShowWizard":false,"Update":{"Enable":true,"UseUnstableBuild":true,"SendCrashReport":true},"WindowScale":1,"WindowState":0,"WindowSize":{"X":1280,"Y":800},"WindowLocation":{"X":0,"Y":0},"SelectedTabName":"kyoshin-monitor","SavedVersion":"0.15.4.159","SeriesEnable":{},"Timer":{"Offset":1200,"AutoOffsetIncrement":true},"KyoshinMonitor":{"UseExperimentalShakeDetect":true,"ListRenderMode":"ShindoIcon","FetchFrequency":1,"ForcefetchOnEew":false,"SwitchAtShakeDetect":false},"Eew":{"EnableSignalNowProfessional":false,"EnableSignalNowProfessionalLocation":false,"ShowDetails":false,"SyncKyoshinMonitorPsWave":false,"FillWarningArea":true,"FillForecastIntensity":true,"SwitchAtAnnounce":true,"DisableAnimation":false},"Theme":{"WindowThemeName":"Dark","IntensityThemeName":"Standard"},"NetworkTime":{"Enable":true,"Address":"time.google.com","EnableFallbackHttp":true},"Logging":{"Enable":false,"Directory":"Logs"},"Update":{"Enable":true,"UseUnstableBuild":true,"SendCrashReport":true},"Notification":{"TrayIconEnable":true,"HideWhenMinimizeWindow":true,"HideWhenClosingWindow":false,"Enable":true,"SwitchEqSource":true,"GotEq":true,"EewReceived":true,"Tsunami":true},"Map":{"DisableManualMapControl":false,"KeepRegion":false,"AutoFocus":true,"MaxNavigateZoom":8.5,"ShowGrid":false,"Location1":{"Latitude":45.619358,"Longitude":145.77399},"Location2":{"Latitude":29.997368,"Longitude":128.22534},"AutoFocusAnimation":true,"UseMiniMap":true},"Dmdata":{"OAuthClientId":"CId._xg46xWbfdrOqxN7WtwNfBUL3fhKLH9roksSfV8RV3Nj","OAuthClientSecret":null,"RefreshToken":null,"ReceiveTraining":false,"UseWebSocket":true,"PullMultiply":1},"Earthquake":{"FillSokuhou":true,"FillDetail":false,"ShowHistory":true,"SwitchAtUpdate":false},"Tsunami":{"SwitchAtUpdate":false},"Radar":{"AutoUpdate":true},"RawIntensityObject":{"ShowNameZoomLevel":9,"ShowValueZoomLevel":9.5,"MinShownIntensity":-3,"MinShownDetailIntensity":-3,"ShowIntensityIcon":false,"ShowInvalidateIcon":true},"Audio":{"GlobalVolume":1},"Sounds":{},"EventHook":{"Enabled":true,"FolderPath":"/app/hooks"}}
+{
+  "ShowWizard": false,
+  "WindowScale": 1,
+  "WindowState": 0,
+  "WindowSize": {
+    "X": 1280,
+    "Y": 800
+  },
+  "WindowLocation": {
+    "X": 0,
+    "Y": 0
+  },
+  "SelectedTabName": "kyoshin-monitor",
+  "AutoProcessPriority": false,
+  "FocusExistingInstanceOnDuplicate": true,
+  "SavedVersion": "0.20.21.277",
+  "SavedVersionWithSuffix": "0.20.21",
+  "SeriesEnable": {},
+  "Timer": {
+    "Offset": 1100,
+    "AutoOffsetIncrement": true
+  },
+  "KyoshinMonitor": {
+    "UseExperimentalShakeDetect": true,
+    "EventNotificationLevel": 2,
+    "FetchFrequency": 1,
+    "ForcefetchOnEew": false,
+    "SwitchAtShakeDetect": false,
+    "ShowColorSample": true,
+    "KeepReceiveDuringReplay": true,
+    "ReturnToRealtimeAtShakeDetected": true,
+    "ReturnToRealtimeAtEewReceived": true,
+    "ReceiveMode": 1,
+    "AutoUpdateObservationPoints": true,
+    "ShakeDetectionDisplayMode": 0,
+    "ShakeDetectionAnimationMode": 1
+  },
+  "Eew": {
+    "EnableKyoshinMonitor": true,
+    "EnableSignalNowProfessional": false,
+    "EnableSignalNowProfessionalLocation": false,
+    "ShowDetails": false,
+    "SyncKyoshinMonitorPsWave": false,
+    "FillWarningArea": true,
+    "FillForecastIntensity": true,
+    "SwitchAtAnnounce": true,
+    "DisableAnimation": false
+  },
+  "Theme": {
+    "WindowTheme": {
+      "Type": 0,
+      "Identifier": "Dark"
+    },
+    "IntensityTheme": {
+      "Type": 0,
+      "Identifier": "Standard"
+    },
+    "WindowThemeName": null,
+    "IntensityThemeName": null
+  },
+  "NetworkTime": {
+    "Enable": true,
+    "Address": "time.google.com",
+    "EnableFallbackHttp": true
+  },
+  "Logging": {
+    "Enable": true,
+    "Directory": "Logs",
+    "UseCurrentDirectory": true
+  },
+  "Update": {
+    "Enable": true,
+    "UsePreReleaseBuild": false,
+    "UseUnstableBuild": true,
+    "SendCrashReport": true
+  },
+  "Notification": {
+    "TrayIconEnable": true,
+    "HideWhenMinimizeWindow": true,
+    "HideWhenClosingWindow": false,
+    "MinimizeWindowOnStartup": false,
+    "Enable": true,
+    "SwitchEqSource": true,
+    "GotEq": true,
+    "EewReceived": true,
+    "Tsunami": true
+  },
+  "Map": {
+    "DisableManualMapControl": false,
+    "KeepRegion": false,
+    "AutoFocus": true,
+    "MaxNavigateZoom": 8.5,
+    "ShowGrid": false,
+    "Location1": {
+      "Latitude": 45.619358,
+      "Longitude": 145.77399
+    },
+    "Location2": {
+      "Latitude": 29.997368,
+      "Longitude": 128.22534
+    },
+    "AutoFocusAnimation": true,
+    "UseMiniMap": true,
+    "IsInertiaEnabled": true
+  },
+  "Dmdata": {
+    "OAuthClientId": "CId._xg46xWbfdrOqxN7WtwNfBUL3fhKLH9roksSfV8RV3Nj",
+    "OAuthClientSecret": null,
+    "RefreshToken": null,
+    "ReceiveTraining": false,
+    "UseWebSocket": true,
+    "PullMultiply": 1,
+    "UseRedundancy": false,
+    "ApiBaseUrl": null,
+    "DataApiBaseUrl": null,
+    "WebSocketDefaultEndpoint": null,
+    "WebSocketRedundantEndpoints": null
+  },
+  "Earthquake": {
+    "FillSokuhou": true,
+    "FillDetail": false,
+    "ShowHistory": true,
+    "SwitchAtUpdate": false
+  },
+  "Tsunami": {
+    "SwitchAtUpdate": false
+  },
+  "Radar": {
+    "AutoUpdate": true
+  },
+  "RawIntensityObject": {
+    "ShowNameZoomLevel": 9,
+    "MinShownIntensity": -3,
+    "MinShownDetailIntensity": -3,
+    "ShowInvalidateIcon": true
+  },
+  "Audio": {
+    "GlobalVolume": 1,
+    "IsMuted": false,
+    "ShowMuteButtonInMainWindow": false
+  },
+  "Sounds": {},
+  "Qzss": {
+    "Connect": false,
+    "SerialPort": "",
+    "BaudRate": 115200,
+    "ShowCurrentPositionInMap": false,
+    "HidePositionNumber": true,
+    "IgnoreOtherOrganizationReport": true,
+    "IgnoreTrainingOrTestReport": true
+  },
+  "Voicevox": {
+    "Enabled": false,
+    "Address": "http://localhost:50021/",
+    "SpeakerId": 2,
+    "SpeedScale": 1,
+    "PitchScale": 0,
+    "IntonationScale": 1,
+    "VolumeScale": 1,
+    "PauseLengthScale": 0.75,
+    "ClearCacheImmediately": false,
+    "EnableAutoCacheCleanup": true,
+    "CacheMaxDays": 7
+  },
+  "Axis": {
+    "Enable": false,
+    "Jwt": ""
+  },
+    "Actions": [
+    {
+      "Type": "Process",
+      "Event": "EewReceived",
+      "Command": "./hooks/eewbot", 
+      "Arguments": [],
+      "Environment": {
+        "KEVI_EVENT_TYPE": "EEW_RECEIVED",
+        "EEW_COUNT": "{ReportNum}",
+        "EEW_PLACE": "{Region}",
+        "EEW_INTENSITY": "{MaxInt}"
+      }
+    }
+  ]
+}
+
